@@ -1,9 +1,9 @@
-# DAX Functions Used in This Module
+# DAX Functions Used in This Solution
 
-Inventory Analytics draws on a subset of the solution's shared DAX time-intelligence
-function library — the same reusable engine used across every module, so a
+Inventory Analytics draws on a subset of a shared DAX time-intelligence function
+library — the same reusable engine used across the companion Power BI projects, so a
 "weekly average" or "year-to-date" here behaves identically to one anywhere else in
-the solution. Only the functions this module actually calls are documented below.
+that family. Only the functions this solution actually calls are documented below.
 
 ```dax
 /// Year-to-date: evaluates the measure for the current calendar year, dates up to
@@ -18,7 +18,7 @@ function YearToDate =
 
 /// Rest-of-year from today: evaluates the measure for the current calendar year,
 /// dates from today onward. The forward-looking counterpart of YearToDate — the
-/// basis for every "projected remaining sales" calculation in this module.
+/// basis for every "projected remaining sales" calculation in this solution.
 function FromToday =
     (Measure: anyref expr) =>
         CALCULATE(
@@ -68,8 +68,8 @@ function MonthlyAverage =
         )
 
 /// Running daily average: averages the measure across all days up to the latest date
-/// in context. Returns blank if the measure is blank — the basis for the module's
-/// daily sales run-rate.
+/// in context. Returns blank if the measure is blank — the basis for this
+/// solution's daily sales run-rate.
 function DailyAverage =
     (Measure: anyref expr) =>
         VAR LatestDate = MAX(Calendar[Date])

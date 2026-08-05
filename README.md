@@ -5,16 +5,16 @@ goods distribution business — stock position, coverage health, and a sales-vel
 driven replenishment signal, entirely derived from sales data rather than purchasing
 or supplier records.
 
-This repository documents the architecture and DAX behind the solution's **Inventory
-Analytics** module. It's a portfolio write-up, not the live report: all entity names
-in the underlying model are generic sample labels (`Product 001`, `Brand 1`…), and no
-real business figures, screenshots, or connection details are included here.
+This repository documents the architecture and DAX behind this **Inventory
+Analytics** solution. It's a portfolio write-up, not the live report: all entity
+names in the underlying model are generic sample labels (`Product 001`, `Brand 1`…),
+and no real business figures, screenshots, or connection details are included here.
 
 ## Business context
 
 The business distributes ~10 brands, each with its own realistic shelf-life and
 turnover profile — so a single "carry 6 weeks of stock" rule doesn't fit the whole
-catalog. This module gives operations a live view of whether each brand and product
+catalog. This solution gives operations a live view of whether each brand and product
 sits inside its own healthy coverage range, and a projected reorder signal driven by
 how fast the product is actually selling right now — not a static reorder point set
 once and forgotten.
@@ -34,8 +34,9 @@ once and forgotten.
   computed live, not maintained as a manual reorder list.
 
 *Out of scope for this repository:* supplier data, purchase orders, and goods-receipt
-tracking are a separate module in the full solution and are intentionally excluded —
-this repo covers stock **visibility and replenishment signal** only.
+tracking are covered in a separate, standalone Power BI project and are
+intentionally excluded — this repo covers stock **visibility and replenishment
+signal** only.
 
 ## Architecture
 
@@ -63,7 +64,7 @@ flowchart LR
 | Doc | Contents |
 |---|---|
 | [Data Model](docs/data-model.md) | Star schema, ER diagram, table catalog, relationships, and the per-brand coverage-target design |
-| [DAX Functions Used](docs/dax-functions.md) | The 8 shared time-intelligence functions this module calls, with full DAX bodies |
+| [DAX Functions Used](docs/dax-functions.md) | The 8 shared time-intelligence functions this solution calls, with full DAX bodies |
 | [DAX Measure Catalog](docs/dax-measures.md) | Stock position, sales velocity, coverage, and the replenishment-signal measures |
 | [Report Tour](docs/report-pages.md) | Walkthrough of both pages |
 

@@ -1,15 +1,15 @@
 # Data Model
 
-This module answers one question: *given how fast we're actually selling, is our
+This solution answers one question: *given how fast we're actually selling, is our
 stock position healthy, and how much should we plan to move next?* It's a
-sales-velocity-driven view of inventory, not a procurement/purchasing model — there
-is no supplier or goods-receipt data anywhere in this repository.
+sales-velocity-driven view of inventory, not a purchasing & supply model — there is
+no supplier or goods-receipt data anywhere in this repository.
 
-> **Scope note.** This repository covers the **Inventory Analytics** module only —
-> current stock position, stock-coverage health, and a sales-velocity-driven
-> replenishment signal. The full solution also includes separate modules for sales
-> monitoring, pricing & margin, trade marketing, sales planning, and portfolio
-> analytics, which are out of scope here.
+> **Scope note.** This repository covers **Inventory Analytics** only — current
+> stock position, stock-coverage health, and a sales-velocity-driven replenishment
+> signal. Sales monitoring, pricing & margin, trade marketing, sales planning,
+> purchasing & supply, and portfolio analytics are covered in separate, standalone
+> Power BI projects and are out of scope here.
 
 ## Entity-relationship diagram
 
@@ -36,7 +36,7 @@ erDiagram
 | Table | Purpose |
 |---|---|
 | **Price & Stock List** | Current-position snapshot: one row per product with on-hand quantity, supplier price, selling price, cost, and margin. This is a point-in-time snapshot, refreshed on each data load — not a transactional ledger. |
-| **Sales Invoice Lines** | The sales fact table (shared with the Sales Metrics module) — quantity and net value sold per invoice line. Referenced here purely as the **velocity input** for coverage and replenishment calculations, not reproduced in full; see the [Sales Analytics](https://github.com/fuadgashi/Sales-Analytics) repository for its full measure catalog. |
+| **Sales Invoice Lines** | The sales fact table (shared with the Sales Analytics solution) — quantity and net value sold per invoice line. Referenced here purely as the **velocity input** for coverage and replenishment calculations, not reproduced in full; see the [Sales Analytics](https://github.com/fuadgashi/Sales-Analytics) repository for its full measure catalog. |
 
 ## Relationships
 

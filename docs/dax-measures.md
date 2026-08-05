@@ -117,7 +117,7 @@ with no separate status column or DAX branch needed.
 
 ## 4. Replenishment signal — projected rest-of-year demand
 
-The centerpiece of this module: rather than a flat run-rate projection, remaining-year
+The centerpiece of this solution: rather than a flat run-rate projection, remaining-year
 sales quantity is projected from **prior-year rest-of-year sales, scaled by this
 year's YoY growth index** — capped at 5× to stop one outlier week from blowing up the
 forecast — and falls back to a simple daily-run-rate projection when there isn't

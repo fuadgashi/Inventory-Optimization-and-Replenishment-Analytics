@@ -1,6 +1,6 @@
 # Report Tour — Inventory Analytics
 
-2 pages, both driven by sales velocity rather than any procurement/purchasing data.
+2 pages, both driven by sales velocity rather than any purchasing/supply data.
 
 | Page | What it shows |
 |---|---|
