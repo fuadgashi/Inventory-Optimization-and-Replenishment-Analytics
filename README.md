@@ -1,4 +1,4 @@
-# Inventory Analytics
+# Inventory Optimization and Replenishment Analytics
 
 A **Power BI** inventory-monitoring solution built for a multi-brand FMCG/consumer-
 goods distribution business — stock position, coverage health, and a sales-velocity-
