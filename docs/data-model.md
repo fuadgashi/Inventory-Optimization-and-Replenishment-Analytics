@@ -38,6 +38,14 @@ erDiagram
 | **Price & Stock List** | Current-position snapshot: one row per product with on-hand quantity, supplier price, selling price, cost, and margin. This is a point-in-time snapshot, refreshed on each data load — not a transactional ledger. |
 | **Sales Invoice Lines** | The sales fact table (shared with the Sales Analytics solution) — quantity and net value sold per invoice line. Referenced here purely as the **velocity input** for coverage and replenishment calculations, not reproduced in full; see the [Sales Analytics](https://github.com/fuadgashi/Sales-Analytics) repository for its full measure catalog. |
 
+### Infrastructure (security & localization)
+
+| Table | Purpose |
+|---|---|
+| **Security** | Row-level-security table — one row per viewer, mapping a UPN to a **role** and a **culture**. Disconnected from the relationship graph; read only through `[User Culture]`. |
+| **Labels** | Plain data table — one row per page/visual, per culture, per label role. The source of every piece of user-facing text in the report. Disconnected from the relationship graph. |
+| **Dynamic Labels** | Measure-only table hosting one text measure per label, each a lookup against `Labels`. Full reference: [Dynamic Titles & Localization](dynamic-titles.md). |
+
 ## Relationships
 
 | From | To |
@@ -46,6 +54,23 @@ erDiagram
 | Price & Stock List[ProductId] | Products[Id] |
 | Sales Invoice Lines[ProductId] | Products[Id] |
 | Sales Invoice Lines[Date] | Calendar[Date] |
+
+## Row-level security & dynamic localization
+
+Three tables work together to drive a genuinely dynamic, bilingual UI — not two
+duplicated sets of pages: `Security` resolves *who* is looking and which culture
+they should see (`User Culture = SELECTEDVALUE(Security[Culture], "en-US")`);
+`Labels` holds *what* every label says, in every supported culture, keyed by a
+`PageKey` band scheme; `Dynamic Labels` holds *the lookup* — one measure per label,
+bound into the report through hidden action-button visuals rather than text boxes.
+
+The report ships with **English as the default culture** and **Albanian as a fully
+supported secondary culture**. Assign a viewer's row a different `Culture` value and
+every page and visual title relabels instantly; adding a third language means adding
+rows to `Labels`, not touching a single measure or rebuilding the report.
+
+Full reference — the key scheme, every label family worked through, the exact `fx`
+binding, and what changes to add a language: [Dynamic Titles & Localization](dynamic-titles.md).
 
 ## Design note: coverage targets are per-brand, not one global rule
 

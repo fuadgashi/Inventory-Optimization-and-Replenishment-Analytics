@@ -8,4 +8,5 @@
 | **Automatic Order** | A rolling sales-to-date / projected-sales-from-today chart, plus a per-product table combining current stock (units / cases / pallets), weeks of coverage, and the suggested-order-quantity signal — everything derived from sales velocity vs. stock on hand, with no supplier or purchasing data involved. |
 
 Both pages share the filter panel (date range, division/brand, product) and
-navigator shell used across the solution.
+navigator shell used across the solution — all localized through the dynamic
+title/label system described in [Dynamic Titles & Localization](dynamic-titles.md).
