@@ -7,9 +7,7 @@ no supplier or goods-receipt data anywhere in this repository.
 
 > **Scope note.** This repository covers **Inventory Analytics** only — current
 > stock position, stock-coverage health, and a sales-velocity-driven replenishment
-> signal. Sales monitoring, pricing & margin, trade marketing, sales planning,
-> purchasing & supply, and portfolio analytics are covered in separate, standalone
-> Power BI projects and are out of scope here.
+> signal. 
 
 ## Entity-relationship diagram
 
