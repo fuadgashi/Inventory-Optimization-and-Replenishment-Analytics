@@ -5,8 +5,7 @@ goods distribution business — stock position, coverage health, and a sales-vel
 driven replenishment signal, entirely derived from sales data rather than purchasing
 or supplier records.
 
-This repository documents the architecture and DAX behind this **Inventory
-Analytics** solution. It's a portfolio write-up, not the live report: all entity
+This repository documents the architecture and DAX behind this **Inventory Optimization and Replenishment Analytics** solution. It's a portfolio write-up, not the live report: all entity
 names in the underlying model are generic sample labels (`Product 001`, `Brand 1`…),
 and no real business figures, screenshots, or connection details are included here.
 
@@ -34,9 +33,8 @@ once and forgotten.
   computed live, not maintained as a manual reorder list.
 
 *Out of scope for this repository:* supplier data, purchase orders, and goods-receipt
-tracking are covered in a separate, standalone Power BI project and are
-intentionally excluded — this repo covers stock **visibility and replenishment
-signal** only.
+tracking are covered in [Purchasing and Supplier Analytics](https://github.com/fuadgashi/Purchasing-and-Supplier-Analytics)
+— this repo covers stock **visibility and replenishment signal** only.
 
 ## Architecture
 
@@ -94,6 +92,15 @@ flowchart LR
   missing translation surfaces as a visible `⚠` instead of quietly falling back to
   English. Full write-up: [Dynamic Titles & Localization](docs/dynamic-titles.md).
 
+## Related projects
+
+Part of a set of Power BI solutions built on the same DAX time-intelligence library and dynamic-localization architecture:
+
+- [Sales Performance Analytics](https://github.com/fuadgashi/Sales-Performance-Analytics)
+- [Strategic Portfolio Analytics](https://github.com/fuadgashi/Strategic-Portfolio-Analytics)
+- [Purchasing and Supplier Analytics](https://github.com/fuadgashi/Purchasing-and-Supplier-Analytics)
+- [Customer Support Analytics](https://github.com/fuadgashi/CustomerSupport-Analytics)
+
 ## License
 
 [MIT](LICENSE) — this repository (documentation, DAX/architecture write-ups) may be
@@ -102,5 +109,5 @@ project files, which remain private.
 
 ## Author
 
-**Fuad Gashi** — Power BI / Business Intelligence developer.
-[GitHub](https://github.com/fuadgashi)
+**Fuad Gashi** — Senior Power BI Consultant.
+[GitHub](https://github.com/fuadgashi) · [Upwork](https://www.upwork.com/freelancers/~010e387a58063279a5) · [LinkedIn](https://www.linkedin.com/in/fuad-gashi-b81268110/)
